@@ -26,7 +26,7 @@ version 1.4.2
 </table>
 ```
 
-### jQuery.sygImageRadio setup
+### JavaScript
 ``` js
 var trHighlighter = new $.sygTrHighlighter('table#demo'{
 	hoverTarget: 'th,td'
@@ -53,9 +53,9 @@ var trHighlighter = new $.sygTrHighlighter('table#demo'{
 ##DESCRIPTION
 テーブルの要素にマウスが乗ると、その行をハイライトするjQueryプラグインです。
 
-やっていることは<tr>にクラス名を付与するだけです。
+やっていることは&lt;tr&gt;にクラス名を付与するだけです。
 
-デフォルトでは<th><td>に反応しますが、hoverTargetオプションで任意の要素に変更することができます。
+デフォルトでは&lt;th&gt;&lt;td&gt;に反応しますが、hoverTargetオプションで任意の要素に変更することができます。
 
 外部から任意の行を選択状態にすることもできます。
 
@@ -66,13 +66,13 @@ exp) hoverTarget:'a,input'
 
 **classA** (even)  
 **classA_hover** (even-hover)  
-**classA_select** (even-select) 
+**classA_select** (even-select)  
 偶数行に適用するクラス。それぞれ通常、ロールオーバー、選択。
 
 **classB** (odd)  
 **classB_hover** (odd-hover)  
 **classB_select** (odd-select) 
-奇数行に適用するクラス。それぞれ通常、ロールオーバー、選択。
+奇数行に適用するクラス。それぞれ通常、ロールオーバー、選択。 
 
 ``` js
 var trHighlighter = new $.sygTrHighlighter('table#demo'{
@@ -89,24 +89,28 @@ var trHighlighter = new $.sygTrHighlighter('table#demo'{
 ##METHOD
 **length**  
 列数を返す。
+
 ``` js
 trHighlighter.length();	// 上記サンプルなら「3」
 ```
 
 **select**  
 任意の列を選択状態にする。
+
 ``` js
 trHighlighter.select(n);
 ```
 
 **deselect**  
 任意の列を選択解除にする。
+
 ``` js
 trHighlighter.deselect(n);
 ```
 
 **toggle**  
 任意の列の選択・解除を切り替える。
+
 ``` js
 trHighlighter.toggle(n);
 ```
