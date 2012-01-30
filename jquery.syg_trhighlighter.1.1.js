@@ -42,14 +42,12 @@
 			
 			// 親となる<table>を取得し、前と違っていたら連番countを初期化
 			var table = $(this).parents('table')
-			var tableClass = table.prop('class');
+			var tableClass = table.attr('class');
 
 			if( tableClass != nowTable ){ 
 				count = 0; 
 				tableCount ++;
 			}
-
-			console.log( tableClass, tableClass == nowTable ? "same" : "chigau" );
 			
 			table.addClass( "sygTrHighlighterTableID"+tableCount );
 			nowTable = table.attr('class');
