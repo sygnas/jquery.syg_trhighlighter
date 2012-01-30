@@ -4,10 +4,14 @@
 jQuery.sygTrHighlighter
 
 ##VERSION
-version 1.0
+version 1.1
 
 jQuery VERSION  
 version 1.4.2
+
+2012.01.31 ver1.1  
+
+* &lt;table&gt;ごとに列の偶数奇数をリセットするように修正。
 
 2012.01.30 ver1.0  
 

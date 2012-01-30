@@ -1,6 +1,6 @@
 /***************************
  * jQuery Table TR Highlighter  
- * version 1.0	
+ * version 1.1	
  * 
  * Hiroshi Fukuda <dada@sygnas.jp>
  * http://sygnas.jp/
@@ -33,10 +33,31 @@
 		var options = jQuery.extend( defaults, config );
 		
 		
+		var nowTable = "";
+		var tableCount = -1;
+		var count = 0;
+		
 		// <tr>を取り出して初期化
-		jQuery('tr',root).each( function(id){
-			var trClass = new SygHighlighterTrClass( this, id, options );
+		jQuery('tr',root).each( function(i){
+			
+			// 親となる<table>を取得し、前と違っていたら連番countを初期化
+			var table = $(this).parents('table')
+			var tableClass = table.prop('class');
+
+			if( tableClass != nowTable ){ 
+				count = 0; 
+				tableCount ++;
+			}
+
+			console.log( tableClass, tableClass == nowTable ? "same" : "chigau" );
+			
+			table.addClass( "sygTrHighlighterTableID"+tableCount );
+			nowTable = table.attr('class');
+			
+			var trClass = new SygHighlighterTrClass( this, count, options );
 			t.trList.push( trClass );
+			
+			count ++;
 		});
 		
 	}
