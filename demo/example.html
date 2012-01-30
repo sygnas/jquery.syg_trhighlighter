@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<script language="JavaScript" type="text/javascript" src="lib/jquery-1.4.2.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="jquery.syg_trhighlighter.1.0.js"></script>
+	
+	<style type="text/css">
+	<!--
+		body{ font-size: 0.8em; }
+		h2{ border-bottom: solid 1px #000; }
+		table{ border-collapse: collapse; }
+		th,td{ padding:  4px; }
+		th{ color: #fff; width:100px; }
+		td{ width: 200px; }
+		
+		/**********************
+		for jQuery Table TR Highlighter
+		*/
+		.even th{ background-color: #666; }
+		.even td{ background-color: #ccc; }
+		.odd th{ background-color: #333; }
+		.odd td{ background-color: #eee; }
+
+		.even-hover th{ background-color: #66c; }
+		.even-hover td{ background-color: #aaccee; }
+		.odd-hover th{ background-color: #339; }
+		.odd-hover td{ background-color: #cde1f5; }
+
+		.even-select th{ background-color: #cc33ee; }
+		.even-select td{ background-color: #e1cdf5; }
+		.odd-select th{ background-color: #a815c9; }
+		.odd-select td{ background-color: #ccaaee; }
+	-->
+	</style>
+</head>
+<!-- //////////////////////// -->
+<body>
+
+<h1>jQuery Table TR Highlighter DEMO</h1>
+
+
+<!-- DEMO 1 ///////////////////////////////// -->
+
+<h2>1.最もシンプル</h2>
+
+<table id="demo1">
+	<tr><th>茨城県</th><td>水戸</td></tr>
+	<tr><th>栃木県</th><td>宇都宮</td></tr>
+	<tr><th>群馬県</th><td>前橋</td></tr>
+	<tr><th>埼玉県</th><td>さいたま</td></tr>
+	<tr><th>千葉県</th><td>千葉</td></tr>
+	<tr><th>東京都</th><td>新宿</td></tr>
+	<tr><th>神奈川県</th><td>横浜</td></tr>
+</table>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+new $.sygTrHighlighter('table#demo1');
+// -->
+</script>
+
+
+
+
+
+<!-- DEMO 2 ///////////////////////////////// -->
+
+<h2>2.&lt;a&gt;のみに反応</h2>
+
+<table id="demo2">
+	<tr><th>茨城県</th><td><a href="#">水戸</a></td></tr>
+	<tr><th>栃木県</th><td><a href="#">宇都宮</a></td></tr>
+	<tr><th>群馬県</th><td><a href="#">前橋</a></td></tr>
+	<tr><th>埼玉県</th><td><a href="#">さいたま</a></td></tr>
+	<tr><th>千葉県</th><td><a href="#">千葉</a></td></tr>
+	<tr><th>東京都</th><td><a href="#">新宿</a></td></tr>
+	<tr><th>神奈川県</th><td><a href="#">横浜</a></td></tr>
+</table>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+new $.sygTrHighlighter('table#demo2',{
+	hoverTarget: "a"
+});
+// -->
+</script>
+
+
+
+<!-- DEMO 3 ///////////////////////////////// -->
+
+<h2>3.外部から選択状態にする</h2>
+
+<table id="demo3">
+	<tr><th>茨城県</th><td><input type="checkbox" id="check0" />水戸</td></tr>
+	<tr><th>栃木県</th><td><input type="checkbox" id="check1" />宇都宮</td></tr>
+	<tr><th>群馬県</th><td><input type="checkbox" id="check2" />前橋</td></tr>
+	<tr><th>埼玉県</th><td><input type="checkbox" id="check3" />さいたま</td></tr>
+	<tr><th>千葉県</th><td><input type="checkbox" id="check4" />千葉</td></tr>
+	<tr><th>東京都</th><td><input type="checkbox" id="check5" />新宿</td></tr>
+	<tr><th>神奈川県</th><td><input type="checkbox" id="check6" />横浜</td></tr>
+</table>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var hoge = new $.sygTrHighlighter('table#demo3');
+
+// 外部から選択状態に
+for( var i = 0 ; i < 7 ; i++ ){
+	$('#check'+i).click( 
+		(
+			function( i ){
+				return function(){ 
+					hoge.toggle(i); 
+				}
+			}
+		)( i )
+	);
+}
+// -->
+</script>
+
+
+
+</body>
+</html>
+
